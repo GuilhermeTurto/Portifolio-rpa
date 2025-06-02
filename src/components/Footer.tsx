@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Informações Principais */}
           <div>
-            <h3 className="text-2xl font-bold mb-4 text-white">DevPython</h3>
+            <h3 className="text-2xl font-bold mb-4 text-white">DevTurto</h3>
             <p className="text-gray-300 mb-6 leading-relaxed">
               Especialista em automações Python e RPA, transformando processos manuais 
               em soluções eficientes e escaláveis.
