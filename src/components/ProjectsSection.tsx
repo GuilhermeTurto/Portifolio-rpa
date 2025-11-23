@@ -1,7 +1,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { FileText, Database, Bot, BarChart3, Mail, Calendar } from "lucide-react";
+import { FileText, Database, ScanSearch, BarChart3, Mail, Workflow } from "lucide-react";
 
 const ProjectsSection = () => {
   const projects = [
@@ -13,18 +13,18 @@ const ProjectsSection = () => {
       category: "Web Automation"
     },
     {
+      title: "Pesquisa e Extração de Dados",
+      description: "Sistema que realiza pesquisas automáticas na web, captura informações relevantes de sites públicos ou privados, organiza os dados em planilhas e envia relatórios estruturados. Ideal para monitoramento de preços, concorrentes, cotações, notícias e muito mais.",
+      icon: ScanSearch,
+      technologies: ["Python", "BeautifulSoup", "Selenium", "Pandas"],
+      category: "Web Scraping"
+    },
+    {
       title: "Extração de Dados via API",
       description: "Sistema de integração que coleta dados de APIs externas e popula planilhas Excel automaticamente, com tratamento de erros e logs detalhados.",
       icon: Database,
       technologies: ["Python", "Requests", "openpyxl", "SQLite"],
       category: "Data Integration"
-    },
-    {
-      title: "Chatbot para Atendimento",
-      description: "Bot inteligente para WhatsApp Business que automatiza respostas frequentes e direciona clientes para os departamentos corretos.",
-      icon: Bot,
-      technologies: ["Python", "Flask", "Twilio API", "NLP"],
-      category: "AI & Chatbots"
     },
     {
       title: "Dashboard de Vendas",
@@ -41,11 +41,11 @@ const ProjectsSection = () => {
       category: "Email Automation"
     },
     {
-      title: "Agendador de Tarefas",
-      description: "Plataforma robusta para agendamento e execução de scripts Python, com monitoramento em tempo real e notificações de status.",
-      icon: Calendar,
-      technologies: ["Python", "Celery", "Redis", "FastAPI"],
-      category: "Task Scheduling"
+      title: "Entrada de Dados em Sistemas",
+      description: "Robô desenvolvido para inserir dados automaticamente em portais e sistemas internos, como emissão de NFs, guias de pagamento, cadastros e preenchimento de formulários complexos. Reduz erros humanos e aumenta a produtividade em tarefas repetitivas.",
+      icon: Workflow,
+      technologies: ["Python", "Selenium", "PyAutoGUI", "SQLite"],
+      category: "RPA (Robotic Process Automation)"
     }
   ];
 
