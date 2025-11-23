@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -33,7 +32,6 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
-      
       await emailjs.send(
         'service_93yvmst',
         'template_iiqcon9',
@@ -46,7 +44,6 @@ const ContactSection = () => {
         description: "Entrarei em contato em breve. Obrigado pelo interesse!",
       });
 
-      // Reset do formulário
       setFormData({
         name: "",
         email: "",
@@ -66,13 +63,16 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contato" className="py-16 bg-slate-50">
+    // MUDANÇA: Adicionei dark:bg-background para ficar preto no modo escuro
+    <section id="contato" className="py-16 bg-slate-50 dark:bg-background transition-colors">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          {/* MUDANÇA: dark:text-white */}
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Vamos Trabalhar Juntos?
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          {/* MUDANÇA: dark:text-gray-400 */}
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Conte-me sobre seu projeto e vamos criar uma solução personalizada para suas necessidades
           </p>
         </div>
@@ -80,27 +80,30 @@ const ContactSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {/* Informações de Contato */}
           <div className="lg:col-span-1">
-            <Card className="h-fit">
+            {/* MUDANÇA: Garanti bg-card e bordas para o dark mode */}
+            <Card className="h-fit dark:bg-card dark:border-gray-800">
               <CardHeader>
-                <CardTitle className="text-xl text-gray-900">
+                {/* CORREÇÃO: Era text-white-900 (erro), mudei para gray e adicionei dark */}
+                <CardTitle className="text-xl text-gray-900 dark:text-white">
                   Informações de Contato
                 </CardTitle>
-                <CardDescription>
+                <CardDescription className="dark:text-gray-400">
                   Entre em contato através dos canais abaixo
                 </CardDescription>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <Mail className="h-5 w-5 text-primary" />
-                  <span className="text-gray-700">devturto@gmail.com</span>
+                  {/* CORREÇÃO: text-white-700 -> text-gray-700 */}
+                  <span className="text-gray-700 dark:text-gray-300">devturto@gmail.com</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone className="h-5 w-5 text-primary" />
-                  <span className="text-gray-700">(14) 99678-1303</span>
+                  <span className="text-gray-700 dark:text-gray-300">(14) 99678-1303</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <MapPin className="h-5 w-5 text-primary" />
-                  <span className="text-gray-700">Bauru, SP</span>
+                  <span className="text-gray-700 dark:text-gray-300">Bauru, SP</span>
                 </div>
               </CardContent>
             </Card>
@@ -116,12 +119,12 @@ const ContactSection = () => {
 
           {/* Formulário */}
           <div className="lg:col-span-2">
-            <Card>
+            <Card className="dark:bg-card dark:border-gray-800">
               <CardHeader>
-                <CardTitle className="text-xl text-gray-900">
+                <CardTitle className="text-xl text-gray-900 dark:text-white">
                   Solicitar Orçamento
                 </CardTitle>
-                <CardDescription>
+                <CardDescription className="dark:text-gray-400">
                   Preencha o formulário abaixo e receba uma proposta personalizada
                 </CardDescription>
               </CardHeader>
@@ -129,17 +132,18 @@ const ContactSection = () => {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="name">Nome Completo *</Label>
+                      <Label htmlFor="name" className="dark:text-gray-200">Nome Completo *</Label>
                       <Input
                         id="name"
                         value={formData.name}
                         onChange={(e) => handleInputChange('name', e.target.value)}
                         placeholder="Seu nome completo"
                         required
+                        className="dark:bg-black-900 dark:border-gray-700"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email">E-mail *</Label>
+                      <Label htmlFor="email" className="dark:text-gray-200">E-mail *</Label>
                       <Input
                         id="email"
                         type="email"
@@ -147,24 +151,26 @@ const ContactSection = () => {
                         onChange={(e) => handleInputChange('email', e.target.value)}
                         placeholder="seu@email.com"
                         required
+                        className="dark:bg-black-900 dark:border-gray-700"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="company">Empresa (opcional)</Label>
+                    <Label htmlFor="company" className="dark:text-gray-200">Empresa (opcional)</Label>
                     <Input
                       id="company"
                       value={formData.company}
                       onChange={(e) => handleInputChange('company', e.target.value)}
                       placeholder="Nome da sua empresa"
+                      className="dark:bg-black-900 dark:border-gray-700"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="projectType">Tipo de Projeto *</Label>
+                    <Label htmlFor="projectType" className="dark:text-gray-200">Tipo de Projeto *</Label>
                     <Select onValueChange={(value) => handleInputChange('projectType', value)}>
-                      <SelectTrigger>
+                      <SelectTrigger className="dark:bg-black-900 dark:border-gray-700">
                         <SelectValue placeholder="Selecione o tipo de automação" />
                       </SelectTrigger>
                       <SelectContent>
@@ -181,21 +187,22 @@ const ContactSection = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="description">Descrição Detalhada *</Label>
+                    <Label htmlFor="description" className="dark:text-gray-200">Descrição Detalhada *</Label>
                     <Textarea
                       id="description"
                       value={formData.description}
                       onChange={(e) => handleInputChange('description', e.target.value)}
-                      placeholder="Descreva detalhadamente o que você precisa automatizar, quais sistemas estão envolvidos, qual o volume de dados, prazo esperado, etc."
+                      placeholder="Descreva detalhadamente o que você precisa automatizar..."
                       rows={5}
                       required
+                      className="dark:bg-blck-900 dark:border-gray-700"
                     />
                   </div>
 
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-primary hover:bg-blue-900 text-white py-3"
+                    className="w-full bg-primary hover:bg-primary/90 text-white py-3"
                   >
                     {isSubmitting ? (
                       <>

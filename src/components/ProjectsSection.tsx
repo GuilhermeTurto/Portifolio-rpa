@@ -50,13 +50,13 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projetos" className="py-16 bg-white">
+    <section id="projetos" className="py-16 bg-white dark:bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Portfólio de Projetos
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             Soluções em automação que entregam resultados reais para empresas de todos os tamanhos
           </p>
         </div>
@@ -76,10 +76,10 @@ const ProjectsSection = () => {
                     {project.category}
                   </Badge>
                 </div>
-                <CardTitle className="text-lg font-semibold text-gray-900">
+                <CardTitle className="text-lg font-semibold text-gray-900 dark:text-white">
                   {project.title}
                 </CardTitle>
-                <CardDescription className="text-gray-600 leading-relaxed">
+                <CardDescription className="text-gray-600 dark:text-gray-400 leading-relaxed">
                   {project.description}
                 </CardDescription>
               </CardHeader>
@@ -101,7 +101,7 @@ const ProjectsSection = () => {
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-gray-600 mb-4">
+          <p className="text-gray-400 mb-4">
             Interessado em ver mais detalhes ou discutir um projeto similar?
           </p>
           <button
@@ -111,7 +111,7 @@ const ProjectsSection = () => {
                 element.scrollIntoView({ behavior: 'smooth' });
               }
             }}
-            className="bg-primary hover:bg-blue-900 text-white px-8 py-3 rounded-lg font-medium transition-colors"
+            className="bg-primary hover:bg-white hover:text-black text-white px-8 py-3 rounded-lg font-medium transition-colors"
           >
             Entre em Contato
           </button>
